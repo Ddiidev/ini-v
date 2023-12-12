@@ -1,4 +1,6 @@
-module ini
+module tests
+
+import ldedev.ini { parser, serrialize }
 
 fn test_parser_simples() {
 

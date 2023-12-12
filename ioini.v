@@ -16,8 +16,8 @@ pub fn serrialize(content map[string]map[string]string) string {
 	return data
 }
 
-pub fn write_ini(content map[string]map[string]string, path string)? {
-	os.write_file(path, serrialize(content))?
+pub fn write_ini(content map[string]map[string]string, path string)! {
+	os.write_file(path, serrialize(content))!
 }
 
 pub fn read_ini(path string) !map[string]map[string]string {
