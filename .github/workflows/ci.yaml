@@ -1,0 +1,63 @@
+name: ini quality code CI
+
+concurrency:
+  group: ci-${{ github.event.number }}
+  cancel-in-progress: true
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  fmt-check:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Setup V
+        uses: vlang/setup-v@v1.3
+        with:
+          check-latest: true
+
+      - name: V doctor
+        run: v doctor
+
+      - name: Install ini
+        run: |
+          v install ldedev.ini
+
+      - name: Move ini source code to path start
+        run: mv ~/.vmodules/ldedev/ini ~/ini
+
+      - name: Verify Fmt
+        run: v fmt -verify ~/ini
+
+  run-tests:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Setup V
+        uses: vlang/setup-v@v1.3
+        with:
+          check-latest: true
+
+      - name: V doctor
+        run: v doctor
+
+      - name: Install ini
+        run: |
+          v install ldedev.ini
+
+      - name: Move ini source code to path start
+        run: mv ~/.vmodules/ldedev/ini ~/ini
+
+      - name: Execute Tests using Pure V Backend
+        run: v -cc tcc -stats test ~/ini

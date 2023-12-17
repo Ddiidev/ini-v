@@ -1,7 +1,7 @@
 module tests
 
 import os
-import ldedev.ini { parser, serrialize, write_ini, read_ini }
+import ini { deserialize, serrialize, write_ini, read_ini }
 
 const ini_file_temp = 'temp_ini/test.ini'
 
@@ -14,7 +14,7 @@ fn test_serrialize() {
 		key2= value2
 	'
 
-	pini := parser(ini_str)
+	pini := deserialize(ini_str)
 
 	ini_read := serrialize(pini)
 

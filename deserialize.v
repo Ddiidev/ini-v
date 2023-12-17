@@ -1,23 +1,23 @@
 module ini
 
-pub fn parser(content string) map[string]map[string]string {
+// deserialize Deserializes a string in ini format into a map.
+//
+// Example:
+// ```v
+// content := r"[conf]
+// 	conf1 = true
+// "
+// c := deserialize(content)
+// println(c['conf']['conf1'])
+// ```
+pub fn deserialize(content string) map[string]map[string]string {
 	mut section := ''
 	mut value := map[string]map[string]string{}
 
-	mut current_line_bk := match true {
-		content.contains('\r\n') {
-			'\r\n'
-		}
-		content.contains('\r') {
-			'\r'
-		}
-		else {
-			'\n'
-		}
-	}
+	current_line_bk := get_skip_line(content)
 
 	for line in content.split(current_line_bk) {
-		if line.len < 3 {
+		if line.len < ini.minimum_length_per_line {
 			continue
 		}
 
