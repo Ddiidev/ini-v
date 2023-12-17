@@ -1,25 +1,25 @@
 module tests
 
-import ini { reader_to }
-
+import ldedev.ini { reader_to }
 
 struct KeysIniAnon {
 pub:
 	conf struct {
-		pub:
-			conf1 string
-			conf2 int
+	pub:
+		conf1 string
+		conf2 int
 	}
+
 	password struct {
-		pub:
-			pass1 string
-			valid bool
+	pub:
+		pass1 string
+		valid bool
 	}
 }
 
 struct KeysIni {
 pub:
-	conf Conf
+	conf     Conf
 	password Passwords
 }
 
@@ -47,7 +47,7 @@ const str_ini = r'
 	'
 
 fn test_parser_valid_true() {
-	local_ini := str_ini.replace('?', 'true')
+	local_ini := tests.str_ini.replace('?', 'true')
 	i1 := reader_to[KeysIni](local_ini)!
 	i2 := reader_to[KeysIniAnon](local_ini)!
 

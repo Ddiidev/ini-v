@@ -6,7 +6,7 @@ Practical way to read and modify an ini/cfg file
 
 ## Documentação da API
 
-You can access the documentation here. (WIP)
+You can access the documentation [here](https://ldedev.github.io/ini-v/).
 
 ## Install
 

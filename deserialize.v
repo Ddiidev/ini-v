@@ -17,7 +17,7 @@ pub fn deserialize(content string) map[string]map[string]string {
 	current_line_bk := get_skip_line(content)
 
 	for line in content.split(current_line_bk) {
-		if line.len < ini.minimum_length_per_line {
+		if line.len < minimum_length_per_line {
 			continue
 		}
 

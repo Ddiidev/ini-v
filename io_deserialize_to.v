@@ -21,11 +21,9 @@ import os
 // ```
 pub fn reader_to[T](pathOrContent string) !T {
 	mut data := T{}
-	
+
 	if os.exists(pathOrContent) {
-		content := os.read_file(pathOrContent) or {
-			return error("ini file not found")
-		}
+		content := os.read_file(pathOrContent) or { return error('ini file not found') }
 		data = parser[T](content)!
 	} else if pathOrContent.len > 5 {
 		data = parser[T](pathOrContent)!

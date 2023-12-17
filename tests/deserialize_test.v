@@ -1,9 +1,8 @@
 module tests
 
-import ini { deserialize , serrialize }
+import ldedev.ini { deserialize }
 
 fn test_parser_simples() {
-
 	ini_str := r'
 		[conf]
 		key=value
@@ -17,9 +16,7 @@ fn test_parser_simples() {
 	assert 'key2' in result['conf']
 }
 
-
 fn test_double_section() {
-
 	ini_str := r'
 		[conf]
 		key=value
@@ -39,7 +36,6 @@ fn test_double_section() {
 }
 
 fn test_with_space() {
-
 	ini_str := r'
 		[ conf ]
 		key= value

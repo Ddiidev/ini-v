@@ -11,19 +11,17 @@ import os
 // println(s)
 // ```
 pub fn serrialize(content map[string]map[string]string) string {
-
-	mut data := ""
+	mut data := ''
 	for section in content.keys() {
-		data += "[$section]\n"
+		data += '[${section}]\n'
 		for key in content[section].keys() {
 			value := content[section][key]
-			data += "$key=$value\n"
+			data += '${key}=${value}\n'
 		}
 	}
 
 	return data
 }
-
 
 // write_ini writes the ini object to an ini format file.
 //
@@ -39,7 +37,7 @@ pub fn serrialize(content map[string]map[string]string) string {
 // 	}	
 // }, './file.ini')!
 // ```
-pub fn write_ini(content map[string]map[string]string, path string)! {
+pub fn write_ini(content map[string]map[string]string, path string) ! {
 	os.write_file(path, serrialize(content))!
 }
 
@@ -51,8 +49,6 @@ pub fn write_ini(content map[string]map[string]string, path string)! {
 // println(c['conf']['conf1'])
 // ```
 pub fn read_ini(content_or_path string) !map[string]map[string]string {
-	content := os.read_file(content_or_path) or {
-		return error("ini file not found")
-	}
+	content := os.read_file(content_or_path) or { return error('ini file not found') }
 	return deserialize(content)
 }
