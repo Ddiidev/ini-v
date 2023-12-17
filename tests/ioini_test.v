@@ -1,7 +1,7 @@
 module tests
 
 import os
-import ldedev.ini { deserialize, read_ini, serrialize, write_ini }
+import ini { deserialize, read_ini, serrialize, write_ini }
 
 const ini_file_temp = 'temp_ini/test.ini'
 

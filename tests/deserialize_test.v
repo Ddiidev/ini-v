@@ -1,6 +1,6 @@
 module tests
 
-import ldedev.ini { deserialize }
+import ini { deserialize }
 
 fn test_parser_simples() {
 	ini_str := r'

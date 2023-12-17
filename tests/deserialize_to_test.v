@@ -1,6 +1,6 @@
 module tests
 
-import ldedev.ini { reader_to }
+import ini { reader_to }
 
 struct KeysIniAnon {
 pub:
