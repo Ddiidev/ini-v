@@ -1,7 +1,7 @@
 
 # Ini
 
-Practical way to read and modify an ini/cfg file
+Simple and practical module for manipulating ini/cfg file.
 
 
 ## Documentação da API
