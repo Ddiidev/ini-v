@@ -4,7 +4,7 @@
 Simple and practical module for manipulating ini/cfg file.
 
 
-## Documentação da API
+## Documentation
 
 You can access the documentation [here](https://ldedev.github.io/ini-v/).
 
@@ -66,7 +66,7 @@ result:
 ```
 
 
-## Funcionalidades
+## Functionalities
 
 - "read_ini" to map
 - "serrialize" to string
