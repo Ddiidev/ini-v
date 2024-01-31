@@ -32,10 +32,10 @@ jobs:
 
       - name: Install ini
         run: |
-          v install ldedev.ini
+          v install Ddiidev.ini
 
       - name: Move ini source code to path start
-        run: mv ~/.vmodules/ldedev/ini ~/ini
+        run: mv ~/.vmodules/ddiidev/ini ~/ini
 
       - name: Verify Fmt
         run: v fmt -verify ~/ini
@@ -54,10 +54,10 @@ jobs:
 
       - name: Install ini
         run: |
-          v install ldedev.ini
+          v install Ddiidev.ini
 
       - name: Move ini source code to path start
-        run: mv ~/.vmodules/ldedev/ini ~/ini
+        run: mv ~/.vmodules/ddiidev/ini ~/ini
 
       - name: Execute Tests using Pure V Backend
         run: v -cc tcc -stats test ~/ini

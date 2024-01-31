@@ -40,10 +40,10 @@ jobs:
 
       - name: Install ini
         run: |
-          v install ldedev.ini
+          v install Ddiidev.ini
 
       - name: Move ini source code to path start
-        run: sudo mv ~/.vmodules/ldedev/ini /ini
+        run: sudo mv ~/.vmodules/ddiidev/ini /ini
 
       - name: Construct doc
         run: v doc -comments -readme -f html -m /ini
