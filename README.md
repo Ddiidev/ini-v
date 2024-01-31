@@ -6,18 +6,18 @@ Simple and practical module for manipulating ini/cfg file.
 
 ## Documentation
 
-You can access the documentation [here](https://ldedev.github.io/ini-v/).
+You can access the documentation [here](https://Ddiidev.github.io/ini-v/).
 
 ## Install
 
 ```bash
-  v install ldedev.ini
+  v install Ddiidev.ini
 ```
 
 Or
 
 ```bash
-  v install https://github.com/ldedev/ini-v
+  v install https://github.com/Ddiidev/ini-v
 ```
 ## Usage
 
