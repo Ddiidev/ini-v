@@ -3,7 +3,9 @@ module tests
 import os
 import ini { deserialize, read_ini, serrialize, write_ini }
 
-const ini_file_temp = 'temp_ini/test.ini'
+const (
+	ini_file_temp = 'temp_ini/test.ini'
+)
 
 fn test_serrialize() {
 	restart()
