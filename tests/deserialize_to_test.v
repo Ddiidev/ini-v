@@ -35,7 +35,8 @@ pub:
 	valid bool
 }
 
-const str_ini = r'
+const (
+	str_ini = r'
 		[conf]
 		conf1=123
 		conf2= 321
@@ -45,6 +46,7 @@ const str_ini = r'
 		pass1= 12345
 		valid=?
 	'
+)
 
 fn test_parser_valid_true() {
 	local_ini := tests.str_ini.replace('?', 'true')
