@@ -17,11 +17,13 @@ on:
       - main
 
 jobs:
-
   fmt-check:
     runs-on: ubuntu-22.04
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup V
         uses: vlang/setup-v@v1.3
         with:
@@ -30,20 +32,16 @@ jobs:
       - name: V doctor
         run: v doctor
 
-      - name: Install ini
-        run: |
-          v install Ddiidev.ini
-
-      - name: Move ini source code to path start
-        run: mv ~/.vmodules/ddiidev/ini ~/ini
-
       - name: Verify Fmt
-        run: v fmt -verify ~/ini
+        run: v fmt -verify .
 
   run-tests:
     runs-on: ubuntu-22.04
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup V
         uses: vlang/setup-v@v1.3
         with:
@@ -52,12 +50,5 @@ jobs:
       - name: V doctor
         run: v doctor
 
-      - name: Install ini
-        run: |
-          v install Ddiidev.ini
-
-      - name: Move ini source code to path start
-        run: mv ~/.vmodules/ddiidev/ini ~/ini
-
-      - name: Execute Tests using Pure V Backend
-        run: v -cc tcc -stats test ~/ini
+      - name: Execute Tests using GCC
+        run: v -cc gcc -stats test .
